@@ -1,38 +1,336 @@
-.App {
-  text-align: center;
+.shell {
+  max-width: 1120px;
+  margin: auto;
+  padding: 32px 40px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.top {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border-bottom: 1px solid #d9dfd0;
+  padding-bottom: 22px;
 }
-
-.App-link {
-  color: #61dafb;
+.wordmark {
+  font-size: 40px;
+  font-weight: 850;
+  letter-spacing: -3px;
+  text-decoration: none;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+.wordmark span {
+  font-size: 30px;
+  color: #a76427;
+  padding-left: 6px;
+}
+.top-note {
+  font-size: 13px;
+  color: #58705b;
+}
+.intro {
+  padding: 44px 0 28px;
+}
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 750;
+}
+.intro h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(44px, 6vw, 68px);
+  line-height: 1.04;
+  font-weight: 400;
+  letter-spacing: -2px;
+  margin: 18px 0;
+}
+.intro > p:last-child {
+  color: #60705d;
+  font-size: 15px;
+}
+.weather-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+.weather-card {
+  background: #e9eedb;
+  border: 1px solid #d9e0cc;
+  border-radius: 22px;
+  padding: 28px 30px;
+  text-align: center;
+  animation: arrive 0.65s ease-out;
+}
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 650;
+  gap: 10px;
+  text-align: left;
+}
+.source {
+  font-size: 9px;
+  letter-spacing: 1px;
+  border: 1px solid #879879;
+  padding: 6px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.sun-scene {
+  height: 185px;
+  position: relative;
+  max-width: 340px;
+  margin: 15px auto 0;
+}
+.sun {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  left: calc(50% - 55px);
+  top: 35px;
+  border-radius: 50%;
+  background: #f3c95e;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 0 13px #f3c95e26;
+}
+.sun span {
+  font-size: 24px;
+  font-weight: bold;
+  color: #655025;
+}
+.sun-rays {
+  position: absolute;
+  width: 154px;
+  height: 154px;
+  left: calc(50% - 77px);
+  top: 13px;
+  border: 5px dashed #ddae42;
+  border-radius: 50%;
+  animation: turn 50s linear infinite;
+}
+.cloud {
+  height: 30px;
+  width: 94px;
+  background: #faf7e9;
+  border-radius: 40px;
+  position: absolute;
+  animation: drift 5s ease-in-out infinite;
+}
+.cloud:before,
+.cloud:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: inherit;
+}
+.cloud:before {
+  width: 45px;
+  height: 45px;
+  left: 15px;
+  bottom: 5px;
+}
+.cloud:after {
+  width: 30px;
+  height: 30px;
+  right: 10px;
+  bottom: 8px;
+}
+.cloud-one {
+  top: 116px;
+  left: 23px;
+}
+.cloud-two {
+  top: 70px;
+  right: 0;
+  transform: scale(0.65);
+  animation-delay: -2s;
+}
+.temperature {
+  font-size: 68px;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: -4px;
+}
+.temperature span {
+  font-size: 30px;
+  vertical-align: top;
+  letter-spacing: 0;
+  line-height: 2;
+}
+.description {
+  font-size: 14px;
+  min-height: 24px;
+}
+.details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  border-top: 1px solid #cbd5bd;
+  padding-top: 22px;
+  margin: 22px 0 0;
+}
+.details dt {
+  font-size: 11px;
+  color: #63735b;
+}
+.details dd {
+  font-weight: 600;
+  margin: 8px 0 0;
+  font-size: 14px;
+}
+.small-star {
+  color: #b37630;
+  font-size: 30px;
+}
+.explore h2 {
+  font-family: Georgia, serif;
+  font-size: 34px;
+  line-height: 1.12;
+  font-weight: 400;
+  letter-spacing: -0.7px;
+  margin: 12px 0;
+}
+.explore > p {
+  color: #64705e;
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 300px;
+}
+.explore form > label {
+  display: block;
+  font-size: 12px;
+  font-weight: 650;
+  margin: 24px 0 8px;
+}
+.explore input[type="text"],
+#city {
+  width: 100%;
+  border: 1px solid #b8c3ab;
+  border-radius: 8px;
+  padding: 13px;
+  background: transparent;
+  color: #263c31;
+}
+.explore fieldset {
+  border: 0;
+  padding: 18px 0;
+  margin: 0;
+  display: flex;
+  gap: 18px;
+}
+.explore legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.explore fieldset label {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.explore input[type="radio"] {
+  accent-color: #334b39;
+}
+.explore button {
+  width: 100%;
+  border: 0;
+  background: #2e4636;
+  color: #fff9e9;
+  border-radius: 8px;
+  padding: 14px;
+  text-align: left;
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+.explore button span {
+  float: right;
+}
+.explore button:hover {
+  background: #435f47;
+  transform: translateY(-2px);
+}
+.feedback {
+  font-size: 11px;
+  line-height: 1.6;
+  min-height: 46px;
+  color: #64705e;
+}
+.feedback .error {
+  color: #9c392c;
+}
+footer {
+  border-top: 1px solid #d9dfd0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #60705d;
+  margin-top: 48px;
+  padding: 20px 0;
+}
+footer span {
+  color: #263c31;
+}
+@keyframes turn {
   to {
     transform: rotate(360deg);
+  }
+}
+@keyframes drift {
+  50% {
+    translate: 12px -3px;
+  }
+}
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 700px) {
+  .shell {
+    padding: 20px;
+  }
+  .top-note {
+    max-width: 140px;
+    text-align: right;
+  }
+  .intro {
+    padding-top: 30px;
+  }
+  .weather-layout {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .weather-card {
+    padding: 22px;
+  }
+  .explore {
+    padding: 10px 4px;
+  }
+  .explore > p {
+    max-width: none;
+  }
+  footer {
+    gap: 18px;
+    line-height: 1.5;
+    margin-top: 28px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
 }
